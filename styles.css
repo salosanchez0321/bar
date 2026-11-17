@@ -1,0 +1,381 @@
+/* ==========================================================
+   ARCANA & ELIXIRES · COVEN BAR — Estética Gótica & Alquímica
+   Paleta sobria: Obsidiana #09080c / Carbón #121017 /
+                  Oro viejo #bfa054 / Carmesí profundo #6e1e2a
+   ========================================================== */
+:root {
+  --ink: #09080c;            /* fondo obsidiana profundo */
+  --ink-2: #121017;          /* superficie elevada */
+  --ink-3: #191620;          /* tarjetas */
+  --crimson: #6e1e2a;        /* borgoña / sangre oscura */
+  --crimson-soft: #963342;
+  --gold: #bfa054;           /* oro viejo / latón */
+  --gold-soft: #d9c082;
+  --sage: #5c7a72;           /* verde salvia apagado */
+  --bone: #ebe6df;           /* pergamino claro */
+  --muted: #948d86;          /* piedra / ceniza */
+  --radius: 0.75rem;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
+  --transition: 0.35s cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+
+/* ---------- Base ---------- */
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  background-color: var(--ink);
+  color: var(--bone);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4, .font-display {
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.04em;
+  color: var(--bone);
+}
+a { color: var(--gold-soft); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--gold); }
+::selection { background: var(--crimson); color: var(--bone); }
+
+/* Foco visible — accesibilidad */
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+
+/* Utilidades de marca */
+.text-gold { color: var(--gold-soft) !important; }
+.text-crimson { color: var(--crimson-soft) !important; }
+.text-sage { color: var(--sage) !important; }
+.text-muted-arcane { color: var(--muted) !important; }
+.bg-surface { background-color: var(--ink-2); }
+.bg-card { background-color: var(--ink-3); }
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+.section-pad { padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
+.divider-arcane {
+  width: 80px;
+  height: 1px;
+  margin: 1.25rem auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ---------- Navbar fija ---------- */
+.navbar-arcana {
+  background: rgba(9, 8, 12, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(191, 160, 84, 0.16);
+  transition: box-shadow var(--transition), background var(--transition);
+}
+.navbar-arcana.is-scrolled { box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8); }
+.navbar-arcana .navbar-brand {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--bone) !important;
+  letter-spacing: 0.06em;
+}
+.navbar-arcana .navbar-brand .amp { color: var(--gold); }
+.navbar-arcana .nav-link {
+  color: var(--muted) !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.95rem !important;
+  position: relative;
+}
+.navbar-arcana .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.95rem;
+  right: 0.95rem;
+  bottom: 0.2rem;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition);
+}
+.navbar-arcana .nav-link:hover,
+.navbar-arcana .nav-link.active { color: var(--bone) !important; }
+.navbar-arcana .nav-link:hover::after,
+.navbar-arcana .nav-link.active::after { transform: scaleX(1); }
+.navbar-toggler { border-color: rgba(191, 160, 84, 0.35); }
+.navbar-toggler .bi { color: var(--gold); font-size: 1.4rem; }
+
+/* ---------- Botones ---------- */
+.btn-arcane {
+  --bs-btn-font-weight: 600;
+  --bs-btn-padding-y: 0.75rem;
+  --bs-btn-padding-x: 1.8rem;
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  transition: var(--transition);
+}
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold), #8f722d);
+  border: 1px solid var(--gold-soft);
+  color: #0d0b08 !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  box-shadow: 0 12px 32px rgba(191, 160, 84, 0.22);
+}
+.btn-ghost {
+  border: 1px solid rgba(191, 160, 84, 0.45);
+  color: var(--gold-soft) !important;
+  background: rgba(18, 16, 23, 0.6);
+}
+.btn-ghost:hover {
+  background: rgba(191, 160, 84, 0.12);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.btn-crimson {
+  background: var(--crimson);
+  border: 1px solid var(--crimson-soft);
+  color: var(--bone) !important;
+}
+.btn-crimson:hover {
+  background: var(--crimson-soft);
+  transform: translateY(-2px);
+}
+
+/* ---------- Hero con fotografía atmosférica ---------- */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(9, 8, 12, 0.94) 0%, rgba(9, 8, 12, 0.78) 55%, rgba(9, 8, 12, 0.88) 100%),
+    url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+  border-bottom: 1px solid rgba(191, 160, 84, 0.18);
+  overflow: hidden;
+}
+.hero .display-title { font-size: clamp(2.3rem, 5.5vw, 4.2rem); line-height: 1.12; }
+.hero-lead { color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.18rem); max-width: 580px; }
+
+.hero-frame {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(191, 160, 84, 0.3);
+  box-shadow: var(--shadow);
+}
+.hero-frame img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  filter: contrast(1.08) brightness(0.82) saturate(0.75);
+  transition: transform 0.8s ease;
+}
+.hero-frame:hover img { transform: scale(1.03); }
+.hero-frame::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(191, 160, 84, 0.25);
+  pointer-events: none;
+}
+
+/* ---------- Cabecera interna ---------- */
+.page-header {
+  padding-top: 8.5rem;
+  padding-bottom: 4.5rem;
+  background:
+    linear-gradient(180deg, rgba(9, 8, 12, 0.88), rgba(18, 16, 23, 0.96)),
+    url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  border-bottom: 1px solid rgba(191, 160, 84, 0.15);
+}
+
+/* ---------- Tarjetas e Imágenes de Productos ---------- */
+.card-arcane {
+  background: linear-gradient(180deg, var(--ink-3), var(--ink-2));
+  border: 1px solid rgba(191, 160, 84, 0.16);
+  border-radius: var(--radius);
+  transition: var(--transition);
+  height: 100%;
+}
+.card-arcane:hover {
+  transform: translateY(-6px);
+  border-color: rgba(191, 160, 84, 0.45);
+  box-shadow: var(--shadow);
+}
+.elixir-img-wrap {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  background: var(--ink);
+  border-bottom: 1px solid rgba(191, 160, 84, 0.14);
+}
+.elixir-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) brightness(0.8) saturate(0.7);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+.card-arcane:hover .elixir-img-wrap img {
+  transform: scale(1.06);
+  filter: contrast(1.12) brightness(0.9) saturate(0.82);
+}
+.elixir-img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(18, 16, 23, 0.9) 100%);
+  pointer-events: none;
+}
+
+.icon-orb {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(191, 160, 84, 0.08);
+  border: 1px solid rgba(191, 160, 84, 0.32);
+  font-size: 1.4rem;
+  color: var(--gold-soft);
+}
+.price-tag {
+  font-family: "Cinzel", serif;
+  color: var(--gold-soft);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ---------- Testimonios / Aliados ---------- */
+.testimonial {
+  background: var(--ink-2);
+  border: 1px solid rgba(191, 160, 84, 0.16);
+  border-left: 2px solid var(--gold);
+  border-radius: var(--radius);
+  height: 100%;
+}
+.logo-cell {
+  background: var(--ink-2);
+  border: 1px solid rgba(191, 160, 84, 0.14);
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  min-height: 92px;
+  transition: var(--transition);
+}
+.logo-cell:hover {
+  border-color: rgba(191, 160, 84, 0.45);
+  transform: translateY(-3px);
+}
+.logo-cell span {
+  font-family: "Cinzel", serif;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  font-size: 0.9rem;
+}
+.logo-cell:hover span { color: var(--gold-soft); }
+
+/* Métricas */
+.metric-value {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2.1rem, 4.5vw, 3rem);
+  color: var(--gold-soft);
+}
+
+/* ---------- Oráculo Interactivo (Cartas del Tarot) ---------- */
+.tarot-card-btn {
+  background: linear-gradient(160deg, #18141f, #0d0b12);
+  border: 1px solid rgba(191, 160, 84, 0.35);
+  border-radius: var(--radius);
+  padding: 2rem 1.25rem;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+  color: var(--bone);
+}
+.tarot-card-btn:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+.tarot-card-btn.is-revealed {
+  border-color: var(--gold);
+  background: linear-gradient(160deg, #221b24, #120f17);
+}
+
+/* ---------- Formulario ---------- */
+.form-control, .form-select {
+  background: var(--ink-3);
+  border: 1px solid rgba(191, 160, 84, 0.22);
+  color: var(--bone);
+  border-radius: 0.4rem;
+  padding: 0.8rem 1rem;
+}
+.form-control::placeholder { color: #635d58; }
+.form-control:focus, .form-select:focus {
+  background: var(--ink-3);
+  color: var(--bone);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 0.2rem rgba(191, 160, 84, 0.15);
+}
+.form-label { color: var(--muted); font-weight: 500; font-size: 0.88rem; }
+
+/* ---------- Footer ---------- */
+.footer-arcana {
+  background: #060508;
+  border-top: 1px solid rgba(191, 160, 84, 0.16);
+}
+.footer-arcana a { color: var(--muted); font-size: 0.9rem; }
+.footer-arcana a:hover { color: var(--gold-soft); }
+.social-orb {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(191, 160, 84, 0.28);
+  color: var(--gold-soft);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+.social-orb:hover {
+  background: rgba(191, 160, 84, 0.12);
+  transform: translateY(-2px);
+  color: var(--gold);
+}
+
+/* ---------- Animación de aparición (JS reveal) ---------- */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Volver arriba */
+#backToTop {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 1050;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid rgba(191, 160, 84, 0.4);
+  background: rgba(18, 16, 23, 0.92); color: var(--gold-soft); font-size: 1.1rem;
+  opacity: 0; visibility: hidden; transition: var(--transition);
+}
+#backToTop.show { opacity: 1; visibility: visible; }
+#backToTop:hover { background: var(--gold); color: #09080c; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; }
+}

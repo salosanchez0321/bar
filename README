@@ -1,0 +1,12 @@
+# Arcana & Elixires — Coven Bar, Medellín (Versión Sobria & Gótica)
+
+Sitio web corporativo de 5 páginas con estética oscura, elegante y sobria.
+
+## Estructura
+- `index.html` — Portada atmosférica, pilares del santuario, Oráculo interactivo de Tarot y elixires destacados.
+- `nosotros.html` — Origen del coven, métricas y filosofía.
+- `productos.html` — Carta de 9 elixires con fotografía oscura y precios.
+- `clientes.html` — Casas aliadas e impacto.
+- `contacto.html` — Formulario validado y mapa en escala de grises oscura.
+- `css/styles.css` — Paleta obsidiana (#09080c), oro viejo (#bfa054) y borgoña (#6e1e2a).
+- `js/main.js` — Lógica modular incluyendo el Oráculo del Tarot.
